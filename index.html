@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zugzielanzeiger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <table id="timetable">
+        <tr>
+            <td class="clock">
+                <!--<div>
+                    <img src="Analoguhr.png" style="width: 225px;">
+                </div>//-->
+                <div id="clockContainer">
+                    <div id="second"></div>
+                    <div id="hour"></div>
+                    <div id="minute"></div>
+                </div>
+            </td>
+            <td class="dashboard">
+                <div>
+                    <h1 id="traintype"></h1>
+                    <p id="ab">⟼ ab</p>
+                    <div id="row">
+                        <h1 class="alignleft" id="destination"></h1>
+                        <h1 class="alignright" id="time"></h1>
+                    </div>
+                    <p class="alignleft" id="stops"></p>
+                    <p class="alignleft" id="annotation"></p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    <label>Zugtyp:</label>
+    <input type="text" id="tbTraintype" onblur="setTraintype()">
+    <label>Zugziel:</label>
+    <input type="text" id="tbDestination" onblur="setDestination()">
+    <label>Abfahrtszeit:</label>
+    <input type="time" id="tbTime" onblur="setTime()">
+    <br><br>
+    <label>Zwischenhalte:</label>
+    <input type="text" id="tbIntermediatestops" onblur="setStops()">
+    <label>Anmerkung:</label>
+    <input type="text" id="tbAnnotation" onblur="setAnnotation()">
+
+    <script src="main.js"></script>
+</body>
+</html>
