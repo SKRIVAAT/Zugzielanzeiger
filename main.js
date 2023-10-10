@@ -3,6 +3,10 @@ let destination = "Bratislava-Petr.";
 let time = "15:46";
 let annotation = "";
 let stops = "";
+let hours = 0;
+let minutes = 0;
+let seconds = 0;
+let liveTime = true;
 
 document.getElementById("traintype").innerHTML = traintype;
 document.getElementById("destination").innerHTML = destination;
@@ -21,6 +25,21 @@ function setDestination()
     destination = document.getElementById("tbDestination").value;
     if(destination.length > 2)
         document.getElementById("destination").innerHTML = destination;
+}
+
+function setCurrTime()
+{
+    time = document.getElementById("tbCurrTime").value;
+    if(time.length > 2)
+    {
+        hours = time.hour;
+        minutes = time.minute;
+        seconds = time.second;
+        liveTime = false;
+    }
+    else{
+        liveTime = true;
+    }
 }
 
 function setTime()
@@ -56,9 +75,24 @@ function setAnnotation()
 
 setInterval(() => {
     d = new Date(); //object of date()
+    
     hr = d.getHours();
     min = d.getMinutes();
-    sec = d.getSeconds();
+    sec = d.getSeconds();  
+
+    if(liveTime)
+    {
+        hr = d.getHours();
+        min = d.getMinutes();
+        sec = d.getSeconds();  
+    }
+    else
+    {
+        hr = hours;
+        min = minutes;
+        sec = seconds;  
+    }
+    
     hr_rotation = 30 * hr + min / 2; //converting current time
     min_rotation = 6 * min;
     sec_rotation = 6 * sec;

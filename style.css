@@ -42,6 +42,12 @@ input {
     width: 225px;
 }
 
+.center
+{
+    margin: auto;
+    width: 50%;
+}
+
 /* id rules */
 
 #traintype {
