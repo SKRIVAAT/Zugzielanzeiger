@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zugzielanzeiger</title>
     <link rel="stylesheet" href="style.css">
+    <script src="js/html2canvas.js" type="text/javascript"></script>
 </head>
 <body>
-    <div class="center">
+    <div>
         <table id="timetable">
             <tr>
                 <td class="clock">
@@ -37,19 +38,27 @@
         <br><br>
         <label>Zugtyp:</label>
         <input type="text" id="tbTraintype" onblur="setTraintype()">
-        <label>Zugziel:</label>
-        <input type="text" id="tbDestination" onblur="setDestination()">
         <br>
+        <label>Zugziel:</label>
+        <input type="text" id="tbDestination" maxlength="16" onblur="setDestination()">
+        <br><br>
         <label>Uhrzeit:</label>
-        <input type="time" id="tbCurrTime" onblur="setCurrTime()">
+        <input type="time" id="tbCurrTime" step="1" onblur="setCurrTime()">
+        <br>
         <label>Abfahrtszeit:</label>
         <input type="time" id="tbTime" onblur="setTime()">
         <br><br>
         <label>Zwischenhalte:</label>
         <input type="text" id="tbIntermediatestops" onblur="setStops()">
+        <br>
         <label>Anmerkung:</label>
         <input type="text" id="tbAnnotation" onblur="setAnnotation()">
-    </body>div>
+        <br>
+        <button onclick="saveTimetable()"> Speichern</button>
+
+    </body>
+    
+</div>
 
     <script src="main.js"></script>
 </body>

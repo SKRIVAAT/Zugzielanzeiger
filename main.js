@@ -1,5 +1,5 @@
-let traintype = "IC";
-let destination = "Bratislava-Petr.";
+let traintype = "Zugtyp";
+let destination = "Zugziel";
 let time = "15:46";
 let annotation = "";
 let stops = "";
@@ -30,11 +30,12 @@ function setDestination()
 function setCurrTime()
 {
     time = document.getElementById("tbCurrTime").value;
-    if(time.length > 2)
+    const timeArray = time.split(":");
+    if(time.length > 1)
     {
-        hours = time.hour;
-        minutes = time.minute;
-        seconds = time.second;
+        hours = timeArray[0];
+        minutes = timeArray[1];
+        seconds = timeArray[2];
         liveTime = false;
     }
     else{
@@ -101,3 +102,9 @@ setInterval(() => {
     minute.style.transform = `rotate(${min_rotation}deg)`;
     second.style.transform = `rotate(${sec_rotation}deg)`;
 }, 1000);
+
+function saveTimetable(){
+    html2canvas(document.querySelector("#timetable")).then(canvas => {
+        document.body.appendChild(canvas)
+    });
+}
