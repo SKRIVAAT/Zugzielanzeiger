@@ -42,18 +42,20 @@ input {
 }
 
 .dashboard {
-    /*background-color: rgb(0, 0, 179);*/
+    background-color: rgb(0, 0, 179);
     line-height: 0px;
     height: 267px;
     margin: 0px;
     padding: 0px;
-    background: repeating-linear-gradient(
+    /*background: repeating-linear-gradient(
     -90deg,
     darkblue,
     darkblue 3px,
     rgb(0, 0, 179) 0px,
     rgb(0, 0, 179) 25%
-  );
+  );*/
+    background-image: url("Hintergrund.png");
+    background-size: 100%;
 }
 
 .clock {
@@ -166,7 +168,7 @@ input {
 #hour {
 	width: 10px;
 	height: 25%;
-	top: 24%;
+	top: 26%;
 	left: 48.85%;
 }
 
