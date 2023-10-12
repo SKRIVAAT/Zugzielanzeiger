@@ -49,8 +49,8 @@ input {
     padding: 0px;
     background: repeating-linear-gradient(
     -90deg,
-    rgb(0, 0, 129),
-    rgb(0, 0, 129) 5px,
+    darkblue,
+    darkblue 3px,
     rgb(0, 0, 179) 0px,
     rgb(0, 0, 179) 25%
   );
