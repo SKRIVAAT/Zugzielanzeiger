@@ -17,11 +17,12 @@
                         <div id="hour"></div>
                         <div id="minute"></div>
                     </div>
+                    <!--<h1 id="platform">10</h1>//-->
                 </td>
                 <td class="dashboard">
                     <div>
                         <h1 id="traintype"></h1>
-                        <p id="ab">⟼ ab</p>
+                        <p id="ab"></p>
                         <div id="row">
                             <h1 class="alignleft" id="destination"></h1>
                             <h1 class="alignright" id="time"></h1>
@@ -33,17 +34,46 @@
             </tr>
         </table>
         <br><br>
+        <table id="timetable2">
+            <tr>
+                <td class="dashboard">
+                    <div>
+                        <h1 id="traintype2"></h1>
+                        <p id="ab2"></p>
+                        <div id="row2">
+                            <h1 class="alignleft" id="destination2"></h1>
+                            <h1 class="alignright" id="time2"></h1>
+                        </div>
+                        <div class="annotationbackground">
+                            <span class="annotationbackground">
+                                <p class="alignleft" id="stops2"></p>
+                                <p class="alignleft" id="annotation2"></p>
+                            </span>
+                        </div>
+                    </div>
+                </td>
+                <td class="clock">
+                    <div id="clockContainer2">
+                        <div id="second2"></div>
+                        <div id="hour2"></div>
+                        <div id="minute2"></div>
+                    </div>
+                    <!--<h1 id="platform">10</h1>//-->
+                </td>
+            </tr>
+        </table>
+        <br><br>
         <label>Zugtyp:</label>
         <input type="text" id="tbTraintype" onblur="setTraintype()">
         <br>
         <label>Zugziel:</label>
-        <input type="text" id="tbDestination" maxlength="16" onblur="setDestination()">
+        <input type="text" id="tbDestination" maxlength="15" onblur="setDestination()">
         <button onclick="setRandomDestination()"> Zufall </button>
         <br><br>
         <label>Uhrzeit:</label>
         <input type="time" id="tbCurrTime" step="1" onblur="setCurrTime()">
         <br>
-        <label>Abfahrtszeit:</label>
+        <button class="alignleft" id="btnAbfahrt" onclick="setAbAn()"> Abfahrt </button>
         <input type="time" id="tbTime" onblur="setTime()">
         <br><br>
         <label>Zwischenhalte:</label>
@@ -53,7 +83,7 @@
         <input type="text" id="tbAnnotation" onblur="setAnnotation()">
         <br><br>
         <button onclick="saveTimetable()"> Bild generieren</button>
-
+        <br><br><br>
     </body>
     
 </div>

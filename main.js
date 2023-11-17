@@ -644,19 +644,48 @@ document.getElementById("traintype").innerHTML = traintype;
 document.getElementById("destination").innerHTML = destination;
 document.getElementById("time").innerHTML = time;
 document.getElementById("annotation").innerHTML = annotation;
+document.getElementById("ab").innerHTML = "⟼ ab";
+
+document.getElementById("traintype2").innerHTML = traintype;
+document.getElementById("destination2").innerHTML = destination;
+document.getElementById("time2").innerHTML = time;
+document.getElementById("annotation2").innerHTML = annotation;
+document.getElementById("ab2").innerHTML = "⟼ ab";
 
 function setTraintype()
 {
     traintype = document.getElementById("tbTraintype").value;
     if(traintype.length > 0)
+    {
         document.getElementById("traintype").innerHTML = traintype;
+        document.getElementById("traintype2").innerHTML = traintype;
+    }
 }
 
 function setDestination()
 {
     destination = document.getElementById("tbDestination").value;
     if(destination.length > 2)
+    {
         document.getElementById("destination").innerHTML = destination;
+        document.getElementById("destination2").innerHTML = destination;
+    }
+}
+
+function setAbAn()
+{
+    if(document.getElementById("ab").innerHTML == "⟼ ab")
+    {
+        document.getElementById("ab").innerHTML = "⇤ an";
+        document.getElementById("ab2").innerHTML = "⇤ an";
+        document.getElementById("btnAbfahrt").innerHTML = "Ankunft";
+    }
+    else
+    { 
+        document.getElementById("ab").innerHTML = "⟼ ab";
+        document.getElementById("ab2").innerHTML = "⟼ ab";
+        document.getElementById("btnAbfahrt").innerHTML = "Abfahrt";
+    }
 }
 
 function setRandomDestination()
@@ -664,6 +693,7 @@ function setRandomDestination()
     destination = destinations[Math.floor(Math.random() * destinations.length)];
     document.getElementById("tbDestination").value = destination;
     document.getElementById("destination").innerHTML = destination;
+    document.getElementById("destination2").innerHTML = destination;
 }
 
 function setCurrTime()
@@ -686,16 +716,25 @@ function setTime()
 {
     time = document.getElementById("tbTime").value;
     if(time.length > 2)
+    {
         document.getElementById("time").innerHTML = time;
+        document.getElementById("time2").innerHTML = time;
+    }
 }
 
 function setStops()
 {
     stops = "über " + document.getElementById("tbIntermediatestops").value;
     if(stops.length > 5)
+    {
         document.getElementById("stops").innerHTML = stops;
+        document.getElementById("stops2").innerHTML = stops;
+    }
     else
+    {
         document.getElementById("stops").innerHTML = "";
+        document.getElementById("stops2").innerHTML = "";
+    }
 }
 
 function setAnnotation()
@@ -705,11 +744,15 @@ function setAnnotation()
     {
         document.getElementById("annotation").innerHTML = annotation;
         document.getElementById("stops").innerHTML = "";
+        document.getElementById("annotation2").innerHTML = annotation;
+        document.getElementById("stops2").innerHTML = "";
     }
     else
     {
         document.getElementById("annotation").innerHTML = "";
         document.getElementById("stops").innerHTML = stops;
+        document.getElementById("annotation2").innerHTML = "";
+        document.getElementById("stops2").innerHTML = stops;
     }
 }
 
@@ -740,10 +783,18 @@ setInterval(() => {
     hour.style.transform = `rotate(${hr_rotation}deg)`;
     minute.style.transform = `rotate(${min_rotation}deg)`;
     second.style.transform = `rotate(${sec_rotation}deg)`;
+
+    hour2.style.transform = `rotate(${hr_rotation}deg)`;
+    minute2.style.transform = `rotate(${min_rotation}deg)`;
+    second2.style.transform = `rotate(${sec_rotation}deg)`;
+
 }, 1000);
 
 function saveTimetable(){
     html2canvas(document.querySelector("#timetable")).then(canvas => {
+        document.body.appendChild(canvas)
+    });
+    html2canvas(document.querySelector("#timetable2")).then(canvas => {
         document.body.appendChild(canvas)
     });
 }
